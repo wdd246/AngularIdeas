@@ -1,0 +1,9 @@
+<h1 class="header">Złote myśli</h1>
+
+<ul *ngFor='let value of values;index as i; trackBy: trackByFunction'>
+  <li class="idea">{{value}}
+  <button (click)="delete(i)" class="delete">X</button></li>
+</ul>
+
+<input (change)="onChange($event)" type="text" value="" placeholder="Wpisz złotą myśl" class="input"
+><button (click)="add()" class="add">+</button>
