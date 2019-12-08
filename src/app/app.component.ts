@@ -5,11 +5,25 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
   title = 'Ideas';
   value = '';
+  save;
+  items;
   item;
   public values =[];
+
+  // ngOnInit() {
+
+  //   this.save={
+  //     items:this.values
+  //   }
+  //   localStorage.setItem('save',JSON.stringify(this.values));
+  
+
+  //   this.value=localStorage.getItem('save');
+  // }
 
   onChange(event){
     this.value = event.target.value;
@@ -19,8 +33,10 @@ export class AppComponent {
   }
 
   add(){
-    this.values.push(this.value);
-    this.value = '';
+    if(this.value != ""){
+      this.values.push(this.value);
+      this.value = '';
+    }
   }
 
   delete(u){
@@ -34,5 +50,4 @@ export class AppComponent {
     if(!item) return null;
     return index;
   }
-
 }
