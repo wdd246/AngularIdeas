@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageServiceService } from '../local-storage-service.service';
 
 @Component({
   selector: 'app-input',
@@ -11,38 +12,35 @@ export class InputComponent implements OnInit {
   save;
   items;
   item;
-  public values =[];
+  public values = [];
 
-  constructor() { }
+  //constructor(private lsService:LocalStorageServiceService) {}
 
   ngOnInit() {
-    this.values=JSON.parse(localStorage.getItem('save'));
-      console.log("SDSDSD");
-      console.log(JSON.parse(localStorage.getItem('save')));
+    //this.values=this.lsService.load();
   }
-
 
   onChange(event){
     this.value = event.target.value;
     this.values.push(this.value);
     this.value = '';
     event.target.value = '';
-    localStorage.setItem('save',JSON.stringify(this.values));
+    //this.lsService.save(this.values);
   }
 
   add(){
-    if(this.value != ""){
+    if(this.value != ''){
       this.values.push(this.value);
       this.value = '';
     }
     console.log(this.values);
-    localStorage.setItem('save',JSON.stringify(this.values));
+    //this.lsService.save(this.values);
   }
 
   delete(u){
     console.log(u);
     this.values.splice(u,1);
-    localStorage.setItem('save',JSON.stringify(this.values));
+    //this.lsService.save(this.values);
   }
 
   trackByFunction(index,item) { 
