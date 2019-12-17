@@ -1,11 +1,11 @@
 <main>
 <div class="container">
-  <h1 class="header">Złote myśli</h1>{{countAdd}}
+  <h1 class="header">Złote myśli</h1>
   <app-input></app-input>
-  <div *ngFor='let value of values;index as i; trackBy: trackByFunction' >
+  <div *ngFor='let value of values;index as i' >
     <div class="idea alert alert-warning alert-dismissible fade show">
-        <span class="badge badge-warning">{{i+1}}</span> {{value | titlecase}}
-        <button type="button" class="delete close" (click)="app-input.delete(i)" aria-label="Close">
+        <span class="badge badge-warning">{{i+1}}</span> {{value | titlecase}} <span class="float-right">{{date | date:'yyyy-MM-dd'}}</span>
+        <button type="button" class="delete close" (click)="input.delete(i)" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
     </div>

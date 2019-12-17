@@ -8,11 +8,11 @@ export class LocalStorageServiceService {
 
   constructor() { }
 
-  save(values:any[]){
+  save(values){
     localStorage.setItem('save',JSON.stringify(values));
   }
 
-  load() : any[]{
+  load(){
     return JSON.parse(localStorage.getItem('save'));
   }
 }

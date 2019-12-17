@@ -16,6 +16,7 @@ export class AppComponent implements AfterViewInit{
   items;
   item;
   public values =[];
+  date = new Date();
 
   ngAfterViewInit() {
     this.value = this.input.value;
@@ -23,5 +24,6 @@ export class AppComponent implements AfterViewInit{
     this.items= this.input.items;
     this.item=this.input.item;
     this.values=this.input.values;
+    this.date = this.input.date;
   }
 }
